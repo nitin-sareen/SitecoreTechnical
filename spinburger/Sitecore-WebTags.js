@@ -49,7 +49,7 @@ function sendAddEvent(productType,item_id,productName,productPrice,productid,pro
   }
 
   // CUSTOM LOGIN
-  function login(email) {
+  function login(email,name) {
     //place an anonymous function in the Boxever queue
     _boxeverq.push(function() { 
       var identityEvent = {
@@ -60,7 +60,8 @@ function sendAddEvent(productType,item_id,productName,productPrice,productid,pro
           currency: "USD",
           page: window.location.href,
           pos: "loquacious-alfajores-b278a6.netlify.app", // Replace with the same point of sale configured in system settings
-          email : email
+          email : email,
+          firstname : name
       };
       //Add UTM params
       identityEvent = Boxever.addUTMParams(identityEvent);
