@@ -121,6 +121,27 @@ function sendAddEvent(productType,item_id,productName,productPrice,productid,pro
     });
   }
 
+  function callInteractiveExp() {
+  var callFlowsContext = {
+    context: {
+      "channel": "WEB",   // update before using. e.g. “WEB”
+      "language": "en",   // update before using. e.g. “en”
+      "currencyCode": "USD",  // update before using. e.g. “EUR”
+      "pointOfSale": "loquacious-alfajores-b278a6.netlify.app", // or value from your data layer
+      "browserId": Boxever.getID(),
+      "clientKey": "psfu6uh05hsr9c34rptlr06dn864cqrx",   
+      "friendlyId": "spinburgerweb3"
+    }
+  };
+  
+  Boxever.callFlows(callFlowsContext, function(response) {
+    // use the response object
+    alert(response);
+  }, 'json');
+
+}
+
+
 // Place an anonymous function in the Boxever queue 
 _boxeverq.push(function() { 
   var viewEvent = {
