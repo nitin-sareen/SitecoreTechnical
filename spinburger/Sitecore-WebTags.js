@@ -17,6 +17,107 @@ var _boxever_settings = {
      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
 })();
 
+// add function CUSTOM
+function sendAddEvent(productType,item_id,productName,productPrice,productid,productCurrency) {
+    //place an anonymous function in the Boxever queue
+    _boxeverq.push(function() { 
+      var addEvent = {
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "ADD",
+        language: "EN",
+        currency: "USD",
+        page: window.location.href,
+        pos: "loquacious-alfajores-b278a6.netlify.app", // Replace with the same point of sale configured in system settings
+          product: {
+            type: productType,
+            item_id: item_id,
+            name: productName,
+            orderedAt: new Date().toISOString(),
+            quantity: 1,
+            price: productPrice,
+            productId: productid,
+            currencyCode: productCurrency
+          }
+      };
+      //Add UTM params
+      addEvent = Boxever.addUTMParams(addEvent);
+      // Invoke event create 
+      // (<event msg>, <callback function>, <format>)
+      Boxever.eventCreate(addEvent, function(data){}, 'json');
+    });
+  }
+
+  // CUSTOM LOGIN
+  function login(email) {
+    //place an anonymous function in the Boxever queue
+    _boxeverq.push(function() { 
+      var identityEvent = {
+          browser_id: Boxever.getID(),
+          channel: "WEB",
+          type: "IDENTITY",
+          language: "EN",
+          currency: "USD",
+          page: window.location.href,
+          pos: "loquacious-alfajores-b278a6.netlify.app", // Replace with the same point of sale configured in system settings
+          email : email
+      };
+      //Add UTM params
+      identityEvent = Boxever.addUTMParams(identityEvent);
+      // Invoke event create 
+      // (<event msg>, <callback function>, <format>)
+      Boxever.eventCreate(identityEvent, function(data){}, 'json');
+    });
+  }
+// CUSTOM CONFIRM EVENT
+  function sendConfirmEvent() {
+    //place an anonymous function in the Boxever queue
+    _boxeverq.push(function() { 
+      var confirmEvent = {
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "CONFIRM",
+        language: "EN",
+        currency: "USD",
+        page: window.location.href,
+        pos: "loquacious-alfajores-b278a6.netlify.app", // Replace with the same point of sale configured in system settings
+        product: [
+          {
+            item_id: "ITEM_1"
+          }
+        ]
+      };
+      //Add UTM params
+      confirmEvent = Boxever.addUTMParams(confirmEvent);
+      // Invoke event create 
+      // (<event msg>, <callback function>, <format>)
+      Boxever.eventCreate(confirmEvent, function(data){}, 'json');
+    });
+  }
+
+  //CUSTOM CHECKOUT EVENT
+  function sendCheckoutEvent() {
+    //place an anonymous function in the Boxever queue
+    _boxeverq.push(function() { 
+      var checkoutEvent = {
+        browser_id: Boxever.getID(),
+        channel: "WEB",
+        type: "CHECKOUT",
+        language: "EN",
+        currency: "USD",
+        page: window.location.href,
+        pos: "loquacious-alfajores-b278a6.netlify.app", // Replace with the same point of sale configured in system settings
+        reference_id: "ORDER_111",
+        status: "PURCHASED"
+      };
+      //Add UTM params
+      checkoutEvent = Boxever.addUTMParams(checkoutEvent);
+      // Invoke event create 
+      // (<event msg>, <callback function>, <format>)
+      Boxever.eventCreate(checkoutEvent, function(data){}, 'json');
+    });
+  }
+
 // Place an anonymous function in the Boxever queue 
 _boxeverq.push(function() { 
   var viewEvent = {
