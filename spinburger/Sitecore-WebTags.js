@@ -5,9 +5,9 @@ var _boxeverq = _boxeverq || [];
 var _boxever_settings = {
     client_key: 'psfu6uh05hsr9c34rptlr06dn864cqrx', // Replace with your client key
     target: 'https://api-ap-southeast-2-production.boxever.com/v1.2', // Replace with your API target endpoint specific to your data center region for e.g., "https://api.boxever.com/v1.2"
-    cookie_domain: 'loquacious-alfajores-b278a6.netlify.app', // Replace with the top level cookie domain of the website
+    cookie_domain: '.loquacious-alfajores-b278a6.netlify.app', // Replace with the top level cookie domain of the website
     javascriptLibraryVersion: '1.4.9', // Replace with the latest Boxever JavaScript library version
-    pointOfSale: 'nslocal',  // Replace with the same point of sale configured in system settings
+    pointOfSale: 'loquacious-alfajores-b278a6.netlify.app',  // Replace with the same point of sale configured in system settings
     web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',  
 };
 // Import the Boxever library asynchronously 
@@ -26,7 +26,7 @@ _boxeverq.push(function() {
       "language": "EN",
       "currency": "USD",
       "page": window.location.href,
-      "pos": "nslocal"  // Replace with the same point of sale configured in system settings
+      "pos": "loquacious-alfajores-b278a6.netlify.app"  // Replace with the same point of sale configured in system settings
   };
   //Add UTM params
   viewEvent = Boxever.addUTMParams(viewEvent);
