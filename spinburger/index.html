@@ -227,12 +227,15 @@
           <!-- login Page -->
           <div id="contact" class="tm-page-content">
             <div class="tm-black-bg tm-contact-form-container tm-align-right">
-              <form id="contact-form" onsubmit="javascript:login(email.value,fname.value,lname.value); this.reset(); return false;">
+              <form id="contact-form" onsubmit="javascript:login(email.value,fname.value,lname.value,gender.value); this.reset(); return false;">
                 <div class="tm-form-group">
                   <input type="text" name="fname" class="tm-form-control" placeholder="FName"  required="true" />
                 </div>
                 <div class="tm-form-group">
                   <input type="text" name="lname" class="tm-form-control" placeholder="LName"  required="true" />
+                </div>
+                <div class="tm-form-group">
+                  <input type="text" name="gender" class="tm-form-control" placeholder="Gender"  required="true" />
                 </div>
                 <div class="tm-form-group">
                   <input type="email" name="email" class="tm-form-control" placeholder="Email" id = "email" required="" />
