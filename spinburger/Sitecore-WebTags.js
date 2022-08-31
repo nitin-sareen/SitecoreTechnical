@@ -136,7 +136,7 @@ function sendAddEvent(productType,item_id,productName,productPrice,productid,pro
   
   Boxever.callFlows(callFlowsContext, function(response) {
     // use the response object
-    alert(response.valueOf("guest.firstSeen"));
+    alert(response['guest.firstSeen']);
   }, 'json');
 
 }
